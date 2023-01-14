@@ -1,0 +1,8 @@
+.vscode
+.vs
+.idea
+.cache
+build*
+tmp
+out
+bin
