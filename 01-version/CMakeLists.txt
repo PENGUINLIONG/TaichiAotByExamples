@@ -1,5 +1,5 @@
 get_filename_component(EXAMPLE_NAME ${CMAKE_CURRENT_LIST_DIR} NAME)
-message("--")
+message("")
 message("[[Example: ${EXAMPLE_NAME}]]")
 
 project(${EXAMPLE_NAME})

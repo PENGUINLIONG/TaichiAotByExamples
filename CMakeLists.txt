@@ -1,0 +1,11 @@
+project(TaichiAotByExamples)
+cmake_minimum_required(VERSION 3.10)
+
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+add_subdirectory(01-version)
+add_subdirectory(02-arch)
+add_subdirectory(03-runtime)
+add_subdirectory(04-memory)
+add_subdirectory(05-ndarray)
