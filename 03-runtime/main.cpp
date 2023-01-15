@@ -12,7 +12,7 @@ int main(int argc, const char **argv) {
   /// You can create a runtime instance targeting a specific API backend like
   /// this.
   {
-#if __APPLE__
+#ifdef __APPLE__
     ti::Runtime runtime(TI_ARCH_METAL);
 #else
     ti::Runtime runtime(TI_ARCH_VULKAN);
@@ -24,7 +24,7 @@ int main(int argc, const char **argv) {
   /// which one to use with its device index. By default, Taichi selects the
   /// most powerful compute device according to an internal algorithm.
   {
-#if __APPLE__
+#ifdef __APPLE__
     ti::Runtime runtime(TI_ARCH_METAL, 0);
 #else
     ti::Runtime runtime(TI_ARCH_VULKAN, 0);

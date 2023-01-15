@@ -44,3 +44,5 @@ created aot module from buffer data
 ```
 
 > Check out this example on Github: [https://github.com/PENGUINLIONG/TaichiAotByExamples/tree/main/07-aot-module](https://github.com/PENGUINLIONG/TaichiAotByExamples/tree/main/07-aot-module)
+
+<sub>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</sub>

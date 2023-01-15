@@ -3,10 +3,10 @@ from pathlib import Path
 import re
 
 class Block:
-    def __init__(self, ty: str, indent: int):
+    def __init__(self, ty: str):
         # top/header/text/cpp
         self.ty = ty
-        self.indent = indent
+        self.indent = None
         self.lines = []
 
     def trim(self):
@@ -14,20 +14,19 @@ class Block:
         while self.lines and self.lines[-1] == "":
             self.lines.pop()
 
-    def push_line(self, line: str):
-        line = line[self.indent:]
-        # Ignore the lines that are not visible after indentation. These are
-        # closing scope braces.
-        if line != "" and line.strip() == "":
-            return
+    def push_line(self, line: str, dont_indent: bool):
         # Ignore leading empty lines.
-        if line == "" and not self.lines:
+        if line.strip() == "" and not self.lines:
             return
+        if self.indent is None and dont_indent == False:
+            self.indent = len(line) - len(line.lstrip())
+        if self.indent is not None and dont_indent == False:
+            line = line[self.indent:]
         self.lines += [line]
 
 class Document:
     def __init__(self, example_name: str) -> None:
-        self.blocks = [Block("top", 0)]
+        self.blocks = [Block("top")]
         self.example_name = example_name
         self.py_src_path = f"{example_name}/assets/module.py"
         self.cpp_src_path = f"{example_name}/main.cpp"
@@ -35,11 +34,10 @@ class Document:
         self.ref_log_path = f"tests/refs/{example_name}.log"
         self.url = f"https://github.com/PENGUINLIONG/TaichiAotByExamples/tree/main/{self.example_name}"
 
-    def _push_line(self, ty: str, line: str):
+    def _push_line(self, ty: str, line: str, dont_indent: bool=False):
         if self.blocks[-1].ty != ty:
-            indent = len(line) - len(line.lstrip())
-            self.blocks += [Block(ty, indent)]
-        self.blocks[-1].push_line(line)
+            self.blocks += [Block(ty)]
+        self.blocks[-1].push_line(line, dont_indent)
 
     def push_header(self, line: str):
         m = re.match(r"# Example \d+: (.*)", line.strip())
@@ -53,7 +51,8 @@ class Document:
         # braces because they won't be visible (shorter than indentation).
         if line.strip() == "{":
             return
-        self._push_line("cpp", line)
+        dont_indent = line.strip().startswith('#')
+        self._push_line("cpp", line, dont_indent)
     def push_py(self, line: str):
         self._push_line("py", line)
 
@@ -173,6 +172,7 @@ for example_name in example_names:
     content = '\n'.join(doc.lines())
     with open(md_path, 'w') as f:
         f.write(content)
+        f.write('\n\n<sub>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</sub>')
 
 with open("mdbook/src/SUMMARY.md", 'w') as f:
     out = [

@@ -47,3 +47,5 @@ runtime is valid? false
 ```
 
 > Check out this example on Github: [https://github.com/PENGUINLIONG/TaichiAotByExamples/tree/main/09-error](https://github.com/PENGUINLIONG/TaichiAotByExamples/tree/main/09-error)
+
+<sub>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</sub>
