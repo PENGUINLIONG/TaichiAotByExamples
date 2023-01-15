@@ -4,8 +4,11 @@
 #include <taichi/cpp/taichi.hpp>
 
 int main(int argc, const char **argv) {
+  /// An arch is an execution backend of Taichi Runtime. Depending on build-time
+  /// flags and current platform installation, Taichi Runtime can support one or
+  /// more archs. You can use `get_available_archs` to enumerate all the archs
+  /// available in the current environment.
   std::vector<TiArch> archs = ti::get_available_archs();
-
   std::cout << "the following archs are suppoted:" << std::endl;
   for (TiArch arch : archs) {
     switch (arch) {
