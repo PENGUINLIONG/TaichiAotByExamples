@@ -1,4 +1,4 @@
-/// # Example 7: AOT module
+/// # Example 8: Launch kernels in AOT modules
 #include <cassert>
 #include <cstdint>
 #include <cstdlib>
