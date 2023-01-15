@@ -1,11 +1,10 @@
-/// # Example 9: Error handling
+//! # Example 9: Error Handling
 #include <cassert>
 #include <cstdint>
 #include <cstdlib>
 #include <iostream>
 #include <fstream>
 #include <taichi/cpp/taichi.hpp>
-#include <taichi/taichi_core.h>
 
 int main(int argc, const char **argv) {
   /// When your project is complicated enough, or you are targeting multiple
@@ -18,8 +17,8 @@ int main(int argc, const char **argv) {
   /// any error occurred during your previous API calls.
   ti::Error error = ti::get_last_error();
 
-  /// In most cases it should report `TI_ERROR_SUCCESS`, indicating everything
-  /// is fine.
+  /// In most cases it reports `TI_ERROR_SUCCESS`, indicating everything is
+  /// fine.
   assert(error.error == TI_ERROR_SUCCESS);
 
   /// But if you missed something, the error code will give you a semantical

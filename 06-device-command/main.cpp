@@ -1,16 +1,17 @@
-/// # Example 6: Device command and synchronization
+//! # Example 6: Device Command
 #include <cassert>
 #include <cstdint>
 #include <iostream>
 #include <taichi/cpp/taichi.hpp>
 
 int main(int argc, const char **argv) {
+  ti::Runtime runtime(ti::get_available_archs().front());
+
   /// Taichi Runtime C-API interface functions not only have host-side
   /// procedures like memory allocation and mapping, there are also device
   /// commands like kernel launches and memory copy. In this example we will
   /// demonstrate the concept of device commands and the correct usage of them,
   /// with an example of device-to-device memory copy.
-  ti::Runtime runtime(ti::get_available_archs().front());
   ti::NdArray<float> src = runtime.allocate_ndarray<float>({4}, {}, true);
   ti::NdArray<float> dst = runtime.allocate_ndarray<float>({4}, {}, true);
   src.write({1.0f, 2.0f, 3.0f, 4.0f});

@@ -1,4 +1,4 @@
-/// # Example 7: Load and create AOT modules
+//! # Example 7: AOT Module
 #include <cassert>
 #include <cstdint>
 #include <cstdlib>

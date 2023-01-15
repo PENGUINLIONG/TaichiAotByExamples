@@ -1,4 +1,4 @@
-/// # Example 5: ND-Array
+//! # Example 5: ND-Array
 #include <cassert>
 #include <cstdint>
 #include <ios>
@@ -18,9 +18,9 @@ int main(int argc, const char **argv) {
   /// vectors and matrices, Taichi's ND-array thus have generalized the concept
   /// of Tensor element. A Tensor can not only contain scalar elements but also
   /// vectors and matrices, leading to its `elem_shape` attribute to represent
-  /// the dimension of the shape of each elements.
+  /// the dimension of the shape of each element.
   ///
-  /// You can allocate an host-accessible 4x4 array of 2-component vectors like
+  /// You can allocate a host-accessible 4x4 array of 2-component vectors like
   /// this:
   ti::NdArray<float> arr = runtime.allocate_ndarray<float>({4, 4}, {2}, true);
 

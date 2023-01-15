@@ -1,4 +1,4 @@
-/// # Example 2: Enumerate available runtime archs
+//! # Example 2: Taichi Arch
 #include <cstdint>
 #include <iostream>
 #include <taichi/cpp/taichi.hpp>
@@ -9,7 +9,8 @@ int main(int argc, const char **argv) {
   /// more archs. You can use `get_available_archs` to enumerate all the archs
   /// available in the current environment.
   std::vector<TiArch> archs = ti::get_available_archs();
-  std::cout << "the following archs are suppoted:" << std::endl;
+
+  std::cout << "the following archs are supported:" << std::endl;
   for (TiArch arch : archs) {
     switch (arch) {
     case TI_ARCH_VULKAN:

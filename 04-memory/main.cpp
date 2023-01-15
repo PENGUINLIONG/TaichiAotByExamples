@@ -1,4 +1,4 @@
-/// # Example 4: Allocate memory for kernels and CPU access
+//! # Example 4: Memory Allocation
 #include <cassert>
 #include <cstdint>
 #include <iostream>

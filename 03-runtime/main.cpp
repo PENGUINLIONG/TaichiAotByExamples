@@ -1,4 +1,4 @@
-/// # Example 3: Create the right runtime for your workload
+//! # Example 3: Runtime Instance
 #include <cstdint>
 #include <iostream>
 #include <taichi/cpp/taichi.hpp>

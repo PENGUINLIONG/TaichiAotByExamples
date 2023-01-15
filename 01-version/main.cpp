@@ -1,4 +1,4 @@
-/// # Example 1: Double check Taichi Runtime version
+//! # Example 1: Versioning
 #include <cstdint>
 #include <iostream>
 #include <taichi/cpp/taichi.hpp>

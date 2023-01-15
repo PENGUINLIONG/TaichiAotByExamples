@@ -9,3 +9,6 @@ bin
 
 # Ignore precompiled AOT modules
 *.tcm
+
+# Ignore generated mdbook
+mdbook/book
