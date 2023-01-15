@@ -7,7 +7,7 @@
 #include <taichi/cpp/taichi.hpp>
 
 int main(int argc, const char **argv) {
-  ti::Runtime runtime(TI_SOURCE_TYPE_SPIRV_BIT);
+  ti::Runtime runtime(ti::get_available_archs().front());
 
   /// Compared with `ti::Memory`, ND-array provides a more structured view over
   /// the underlying memory.

@@ -6,3 +6,6 @@ build*
 tmp
 out
 bin
+
+# Ignore precompiled AOT modules
+*.tcm

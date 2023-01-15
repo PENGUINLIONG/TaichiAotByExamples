@@ -5,7 +5,7 @@
 #include <taichi/cpp/taichi.hpp>
 
 int main(int argc, const char **argv) {
-  ti::Runtime runtime(TI_SOURCE_TYPE_SPIRV_BIT);
+  ti::Runtime runtime(ti::get_available_archs().front());
 
   /// Allocate a piece of memory on device. Device memory is usually local to
   /// the compute device and is not accessible from the CPU.

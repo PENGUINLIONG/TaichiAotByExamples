@@ -10,7 +10,7 @@ int main(int argc, const char **argv) {
   /// commands like kernel launches and memory copy. In this example we will
   /// demonstrate the concept of device commands and the correct usage of them,
   /// with an example of device-to-device memory copy.
-  ti::Runtime runtime(TI_SOURCE_TYPE_SPIRV_BIT);
+  ti::Runtime runtime(ti::get_available_archs().front());
   ti::NdArray<float> src = runtime.allocate_ndarray<float>({4}, {}, true);
   ti::NdArray<float> dst = runtime.allocate_ndarray<float>({4}, {}, true);
   src.write({1.0f, 2.0f, 3.0f, 4.0f});
