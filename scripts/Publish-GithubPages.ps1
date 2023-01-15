@@ -15,6 +15,7 @@ Push-Location $SiteRepoName
 & git init
 & git remote add origin "https://github.com/PENGUINLIONG/$SiteRepoName"
 Copy-Item "../../mdbook/book/*" -Recurse
+Copy-Item "../../LICENSE*"
 & git add .
 & git commit -m "Publish to Github Pages"
 & git push --force --set-upstream origin master
