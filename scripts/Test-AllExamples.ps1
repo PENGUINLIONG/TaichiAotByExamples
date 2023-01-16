@@ -34,6 +34,16 @@ Get-ChildItem $BuildDir | ForEach-Object {
     $RefLogPath = "tests/refs/$FileName.log"
     $LogPath = Join-Path $BaseDir "$FileName.log"
 
+    if (Test-Path $ExecutablePath) {
+        Write-Host "Run $ExecutablePath"
+        & $ExecutablePath > $LogPath
+        if ($LASTEXITCODE -ne 0) {
+            Write-Error "Failed $ExecutablePath";
+            Write-Error (Get-Content $LogPath)
+            return;
+        }
+    }
+
     if ($UpdateLogs) {
         Copy-Item $LogPath $RefLogPath
     } else {
@@ -56,8 +66,4 @@ $Actual
         }
     }
 
-    if (Test-Path $ExecutablePath) {
-        Write-Host "Run $ExecutablePath"
-        & $ExecutablePath > $LogPath
-    }
 }
