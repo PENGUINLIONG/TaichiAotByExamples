@@ -1,0 +1,8 @@
+[book]
+title = "Taichi AOT by Examples"
+author = "PENGUINLIONG"
+description = "Learn Taichi AOT deployment with examples."
+language = "en"
+
+[output.html]
+git-repository-url = "https://github.com/PENGUINLIONG/TaichiAotByExamples"
