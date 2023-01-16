@@ -25,15 +25,21 @@ cmake --build .
 ```
 
 But either way, please run the examples with repository root as the working
-directly, otherwise some hardcoded pahts might fail.
+directory, otherwise some hardcoded paths might fail.
 
-- [`mdBook`](https://github.com/rust-lang/mdBook)
+## Develop Setup
 
-Please do the following to 
+You need only the following tools to build and run the examples.
 
-- PowerShell 6.0+ (On *nix platforms too)
 - CMake 3.10+
 - Python 3.10+
+
+But if you want to deploy the website with the automation I wrote. You have to
+install these extra dependencies.
+
+- PowerShell 6.0+ (On *nix platforms too)
+- Rust 2018 Edition
+- [`mdBook`](https://github.com/rust-lang/mdBook)
 
 ## Testing
 
