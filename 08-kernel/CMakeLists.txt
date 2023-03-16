@@ -9,15 +9,15 @@ cmake_minimum_required(VERSION 3.10)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# We need to set `FindTaichi.cmake` in module path to `find_package(taichi)`.
+# We need to set `FindTaichi.cmake` in module path to `find_package(Taichi)`.
 set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/../cmake)
-find_package(taichi REQUIRED)
+find_package(Taichi REQUIRED)
 
 # We need Python3 to compile Taichi AOT modules.
 find_package(Python3 REQUIRED COMPONENTS Interpreter)
 
 add_executable(${EXAMPLE_NAME} main.cpp)
-target_link_libraries(${EXAMPLE_NAME} PRIVATE taichi::runtime)
+target_link_libraries(${EXAMPLE_NAME} PRIVATE Taichi::Runtime)
 
 # Compile Taichi AOT module.
 add_custom_command(
@@ -30,5 +30,5 @@ add_custom_command(
 add_custom_command(
     TARGET ${EXAMPLE_NAME}
     PRE_BUILD
-    COMMENT "-- Copy redistributed libraries to output directory (if different): ${taichi_REDIST_LIBRARIES}"
-    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${taichi_REDIST_LIBRARIES} "$<TARGET_FILE_DIR:${EXAMPLE_NAME}>")
+    COMMENT "-- Copy redistributed libraries to output directory (if different): ${Taichi_REDIST_LIBRARIES}"
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${Taichi_REDIST_LIBRARIES} "$<TARGET_FILE_DIR:${EXAMPLE_NAME}>")
