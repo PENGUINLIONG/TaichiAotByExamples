@@ -11,3 +11,4 @@
 - [AOT Module](examples/07-aot-module.md)
 - [Kernel and Positional Argument](examples/08-kernel.md)
 - [Error Handling](examples/09-error.md)
+- [Texture](examples/10-texture.md)
