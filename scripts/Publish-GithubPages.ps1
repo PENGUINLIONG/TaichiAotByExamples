@@ -33,6 +33,7 @@ Copy-Item "../../mdbook/README.md"
 Copy-Item "../../LICENSE*"
 & git add .
 & git commit -m "Publish to Github Pages"
+& git branch -m "master"
 & git push --force --set-upstream origin master
 
 Pop-Location # $SiteRepoName
