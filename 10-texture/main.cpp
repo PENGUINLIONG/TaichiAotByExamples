@@ -1,4 +1,4 @@
-//! # Example 8: Kernel and Positional Argument
+//! # Example 10: Texture
 #include <cassert>
 #include <cstdint>
 #include <cstdlib>
